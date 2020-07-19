@@ -1,6 +1,6 @@
-.sln
-.csproj.user
-.csproj
+*.sln
+*.csproj.user
+*.csproj
 aws-beanstalk-tools-defaults.json
 obj/
 bin/
