@@ -1,0 +1,59 @@
+﻿@model PortfolioWebsite.Models.ProjectModel
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<h1>@Model.Name</h1>
+
+@if (Model.Description != null)
+{
+    <p>@Model.Description</p>
+}
+
+<div class="row">
+    <div class="column" style="width: 400px">
+        @if (Model.MadeWith != null)
+        {
+            <h2>Made with</h2>
+            <ul>
+                @foreach (string material in Model.MadeWith)
+                {
+                    <li>@material</li>
+                }
+            </ul>
+        }
+        @if ((!String.IsNullOrEmpty(Model.SourceLink)) || (!String.IsNullOrEmpty(Model.ReleaseLink)))
+        {
+            <h3>Download</h3>
+            @if (!String.IsNullOrEmpty(Model.SourceLink))
+            {
+                <p><a href="@Model.SourceLink">Source</a></p>
+            }
+            @if (!String.IsNullOrEmpty(Model.ReleaseLink))
+            {
+                <p><a href="@Model.ReleaseLink">Release</a></p>
+            }
+        }
+    </div>
+    <div class="column">
+        @if (!String.IsNullOrEmpty(Model.Asset))
+        {
+            @if (System.IO.Path.GetExtension(Model.Asset) == ".webm")
+            {
+                <video width="620" playsinline autoplay muted loop>
+                    <source src="/assets/@Model.Asset" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            }
+            else
+            {
+                <img src="/assets/@Model.Asset" alt="Image not found!" width="620" />
+            }
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

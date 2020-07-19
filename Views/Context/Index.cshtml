@@ -1,0 +1,16 @@
+﻿@inject PortfolioWebsite.Services.InfoService infoService
+
+@{
+    ViewData["Title"] = "About Me";
+}
+
+<h1>@infoService.GetValue("aboutme.txt", "Name")</h1>
+
+<div class="row">
+    <div class="column" style="width: 500px">
+        <p style="white-space: pre-line;">@infoService.GetValue("aboutme.txt", "AboutMe").Replace('~', '\n')</p>
+    </div>
+    <div class="column">
+        <img src="/assets/me.png" alt="Image not found!" width="300" />
+    </div>
+</div>

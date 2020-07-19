@@ -1,0 +1,11 @@
+﻿@inject PortfolioWebsite.Services.InfoService infoService
+
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<div>
+    <h1>Contact Details</h1>
+    <p>@infoService.GetValue("contact.txt", "Number")</p>
+    <p>@infoService.GetValue("contact.txt", "Email")</p>
+</div>
