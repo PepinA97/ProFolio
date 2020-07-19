@@ -1,9 +1,9 @@
 .sln
 .csproj.user
 .csproj
+aws-beanstalk-tools-defaults.json
 obj/
 bin/
 .vs/
-aws-beanstalk-tools-defaults.json
 wwwroot/assets/
 wwwroot/info/
