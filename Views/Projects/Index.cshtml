@@ -10,6 +10,7 @@
         <div>
             <button class="project-content" asp-action="Project" asp-route-FileName="@projectModel.FileName.Replace(".txt", "")">
                 <h1>@projectModel.Name</h1>
+                <p>@projectModel.Description</p>
                 @if (!String.IsNullOrEmpty(projectModel.Asset))
                 {
                     @if (System.IO.Path.GetExtension(projectModel.Asset) == ".webm")
@@ -24,7 +25,6 @@
                         <img src="/assets/@projectModel.Asset" alt="Image not found!" width="620" />
                     }
                 }
-                <p>@projectModel.Description</p>
             </button>
         </div>
         }
