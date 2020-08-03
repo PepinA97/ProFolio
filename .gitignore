@@ -7,3 +7,5 @@ bin/
 .vs/
 wwwroot/assets/
 wwwroot/info/
+Properties/
+me.png
